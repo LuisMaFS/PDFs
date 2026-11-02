@@ -1,0 +1,53 @@
+=============================================================
+ GUIA: CREAR EJECUTABLE (.EXE) Y EJECUTARLO EN OTRA COMPUTADORA
+=============================================================
+
+1. ASEGURAR COMPATIBILIDAD EN WINDOWS
+-------------------------------------------------------------
+Tus scripts ya están optimizados con la pausa final:
+    input("\nPresiona Enter para salir...")
+Esto es fundamental para que, al correr el .exe haciendo doble clic 
+en otra computadora, la ventana negra de comandos no se cierre de 
+golpe al terminar, permitiéndote ver los resultados y el reporte.
+
+
+2. GENERAR EL ARCHIVO .EXE CON PYINSTALLER
+-------------------------------------------------------------
+Abre tu terminal (PowerShell o CMD), navega hasta la carpeta donde 
+tienes tu archivo de Python (por ejemplo, desfase.py o contar_pdfs.py) 
+y ejecuta el comando de empaquetado:
+
+    python -m PyInstaller --onefile tu_script.py
+
+- El parámetro "--onefile" empaqueta todo en un único archivo ejecutable 
+  independiente.
+
+
+3. LOCALIZAR EL EJECUTABLE RESULTANTE
+-------------------------------------------------------------
+Una vez que termine el proceso de compilación, verás que en tu carpeta 
+de trabajo se crearon varias carpetas y archivos temporales. 
+
+El archivo que te interesa está dentro de la carpeta llamada:
+    dist
+
+Entra a la carpeta "dist" y ahí encontrarás tu archivo final:
+    tu_script.exe
+
+
+4. LLEVARLO A OTRA COMPUTADORA (VIA USB O RED)
+-------------------------------------------------------------
+Para usarlo en el otro equipo:
+1. Copia únicamente el archivo "tu_script.exe" (no necesitas llevarte 
+   las carpetas build, dist ni el archivo .py original).
+2. Pégalo en una memoria USB.
+3. Conecta la USB en la computadora de destino.
+4. Puedes copiar el .exe directamente dentro de la carpeta donde están 
+   los archivos PDF que necesitas procesar.
+5. Haz doble clic sobre el .exe para ejecutarlo. 
+6. El programa leerá los PDFs de esa misma carpeta, hará el proceso 
+   correspondiente y mostrará el reporte final en pantalla esperando 
+   a que presiones Enter para cerrar.
+
+
+
